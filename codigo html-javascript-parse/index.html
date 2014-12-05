@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		html { height: 100% }
+		body { height: 100%; margin: 0px; padding: 0px;}
+		.container-fluid{
+			margin: 0px; padding: 0px;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="js/parse.min.js"></script>
+	<script src="js/noty.js"></script>
+	<script src="js/app.js"></script>
+	
+</head>
+<body>
+	<div class="container-fluid">
+		<section class="container">
+			<div class="container-page">				
+				<div class="col-md-6">
+					<h4>Push Notificaciones a Android</h4>
+					Las notificaciones que envies llegan como una push notification (estilo WathsApp) a los dispositivos que instalaron
+					la aplicacion en Android.
+					<form role="form" id="form_registro">
+						<div class="form-group col-lg-12">
+							<label>Mensaje a enviar en la notificación</label>
+							<textarea name="msj" id="msj" class="form-control"></textarea>
+						</div>
+						<button id="bt-enviar" class="btn btn-success btn-block">Enviar Notificación</button>
+					</form>
+
+
+				</div>
+			</section>
+		</div>
+	</body>
+	</html>

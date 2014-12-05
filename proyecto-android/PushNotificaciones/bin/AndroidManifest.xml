@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="netosolis.com.push_notificaciones"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+    <!--
+	  Agrega estos permisos al Manifest.
+	-->    
+    <uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.VIBRATE"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	
+	<!--
+	  Cambia netosolis.com.push_notificaciones por el nombre de tu package
+	-->  
+	<permission android:protectionLevel="signature"
+	    android:name="netosolis.com.push_notificaciones.permission.C2D_MESSAGE" />
+	<uses-permission android:name="netosolis.com.push_notificaciones.permission.C2D_MESSAGE" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="8" />
+	
+    
+    <!--
+	  Cambia netosolis.com.push_notificaciones por el nombre de tu package, la linea android:name no la trae por default...agregala y cambia el nombre de paquete
+	--> 
+    <application
+        android:name="netosolis.com.push_notificaciones.Aplicacion"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="netosolis.com.push_notificaciones.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+			Agregar estas lineas a tu Android Manifest, justo despues de </activity>
+	    -->
+        <service android:name="com.parse.PushService" />
+			<receiver android:name="com.parse.ParseBroadcastReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.BOOT_COMPLETED" />
+			    <action android:name="android.intent.action.USER_PRESENT" />
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.parse.GcmBroadcastReceiver"
+			    android:permission="com.google.android.c2dm.permission.SEND">
+			  <intent-filter>
+			    <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+			    <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+				
+			   <!--
+				  Cambia netosolis.com.push_notificaciones por el nombre de tu package
+			    --> 
+			    <category android:name="netosolis.com.push_notificaciones" />
+			  </intent-filter>
+			</receiver>
+    </application>
+
+</manifest>

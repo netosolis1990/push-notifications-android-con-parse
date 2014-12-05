@@ -1,0 +1,5 @@
+Las librerias de Parse vienen dentro de las carpetas.
+
+La libreria de JavaScript se llama parse.min.js
+
+La libreria para Android igual viene dentro de la carpeta de libs en el proyecto de Eclipse.
